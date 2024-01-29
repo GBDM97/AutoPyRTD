@@ -22,7 +22,7 @@ setInterval(() => {
     method: "POST",
     body: JSON.stringify({'options': outputArray()}),
   });
-}, 10000);
+}, 5000);
 
 //MOCK DATA = 
 

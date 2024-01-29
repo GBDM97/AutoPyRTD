@@ -1,13 +1,16 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from ConsoleRTD import process
+from AutoPyRTD.ConsoleRTD.process import optData
 import json
+
+dryOrLock = input('Select "DRY" or "LOCK" : ')
+None if dryOrLock == 'DRY' or dryOrLock == 'LOCK' else exit()
 
 @csrf_exempt
 def post_req_view(request):
     try:
         data = json.loads(request.body.decode('utf-8'))
-        process.optData(data['options'])  # Assuming 'options' is the key in your JSON
+        optData(data['options'], dryOrLock)  # Assuming 'options' is the key in your JSON
 
         response_data = {'message': 'Success'}
         status_code = 200
