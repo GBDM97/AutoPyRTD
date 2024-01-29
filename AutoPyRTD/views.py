@@ -1,6 +1,6 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from AutoPyRTD.ConsoleRTD.process import optData
+from .ConsoleRTD.process import optData
 import json
 
 dryOrLock = input('Select "DRY" or "LOCK" : ')
