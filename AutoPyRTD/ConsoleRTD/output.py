@@ -17,4 +17,4 @@ def toConsole(o):
     #     print(message)
 
     # # Print a new line to avoid overwriting the last line
-    [print (k) for k,v in o.items()]
+    [print (k) for k in o]
