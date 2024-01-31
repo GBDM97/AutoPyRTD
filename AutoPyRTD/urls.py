@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from AutoPyRTD.views import post_req_view
+from AutoPyRTD.views import post_req_view,return_options_data
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('post/', post_req_view)
+    path('post/', post_req_view),
+    path('options/', return_options_data)
 ]

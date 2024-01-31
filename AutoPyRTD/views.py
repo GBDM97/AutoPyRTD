@@ -1,6 +1,7 @@
 from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
-from .ConsoleRTD.process import optData
+from django.http import JsonResponse,HttpResponse
+from .DataGeneration.process import optData
+from .DataGeneration.output import returnData
 import json
 
 dryOrLock = input('Select "DRY" or "LOCK" : ')
@@ -30,3 +31,16 @@ def post_req_view(request):
         response["Access-Control-Allow-Origin"] = "*"
 
     return response
+
+def return_options_data(r):
+    print(str(returnData()))
+    return HttpResponse(
+        f"""
+        <html><body>
+            <h1 style=\"color: green;\">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {returnData()}</h1>
+        </body>
+        </html>
+        """
+    , status=200)

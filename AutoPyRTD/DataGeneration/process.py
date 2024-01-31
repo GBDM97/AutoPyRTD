@@ -13,10 +13,10 @@ def getLockOutput(data, type):
         for i in data for ii in data if ii['code'] != i['code'] and ii['strike'] >= i['strike']
     ]#output: sell/buy
     
-    return filter(lambda l: l[3] <= 0.25 ,sorted(all_lock_combinations, key=lambda x: x[0],reverse=False if type == 'CALL' else True))
+    return list(filter(lambda l: l[3] <= 0.25 ,sorted(all_lock_combinations, key=lambda x: x[0],reverse=False if type == 'CALL' else True)))
 
 def optData(data, dryOrLock):
     options_type = 'CALL' if any(map(lambda l: l == data[0]['code'][-4:-3], callCodes)) else 'PUT'
-    output.toConsole({i['code']: i['sellPrice'] for i in data}) if dryOrLock == 'DRY' else output.toConsole(getLockOutput(data, options_type))
+    output.toPage({i['code']: i['sellPrice'] for i in data}) if dryOrLock == 'DRY' else output.toPage(getLockOutput(data, options_type))
 
     
