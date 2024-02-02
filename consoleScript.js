@@ -15,13 +15,12 @@ const outputArray = () =>
         .textContent.replace(",", "."),
     };
   });
-
 setInterval(() => {
   fetch("http://127.0.0.1:8000/post/", {
     method: "POST",
     body: JSON.stringify({ options: outputArray() }),
   });
-}, 5000);
+}, 1000);
 
 //MOCK DATA =
 

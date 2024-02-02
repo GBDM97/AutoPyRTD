@@ -1,8 +1,10 @@
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse,HttpResponse
 from .DataGeneration.process import optData
 from .DataGeneration.output import returnData
 import json
+import time
 
 dryOrLock = input('Select "DRY" or "LOCK" : ')
 None if dryOrLock == 'DRY' or dryOrLock == 'LOCK' else exit()
@@ -33,14 +35,4 @@ def post_req_view(request):
     return response
 
 def return_options_data(r):
-    print(str(returnData()))
-    return HttpResponse(
-        f"""
-        <html><body>
-            <h1 style=\"color: green;\">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            {returnData()}</h1>
-        </body>
-        </html>
-        """
-    , status=200)
+    return JsonResponse({"optData":returnData()}, status=200)

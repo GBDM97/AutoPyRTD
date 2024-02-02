@@ -1,4 +1,6 @@
-data = [(1,2),(3,4)]
+data = []
+from pathlib import Path
+import os
 
 def toPage(o):
     global data
@@ -7,5 +9,4 @@ def toPage(o):
 def returnData():
     global data
     out = list(data)
-    print(str(out[0]))
-    return str(out[0])
+    return str(out) if data else "LOADING DATA ..."
