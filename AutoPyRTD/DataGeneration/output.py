@@ -9,4 +9,4 @@ def toPage(o):
 def returnData():
     global data
     out = list(data)
-    return str(out) if data else "LOADING DATA ..."
+    return str(out)
