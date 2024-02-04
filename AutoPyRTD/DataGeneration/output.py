@@ -1,12 +1,10 @@
-data = []
-from pathlib import Path
-import os
+import json
 
-def toPage(o):
+data = []
+def toEndpoint(o):
     global data
     data = o
 
 def returnData():
     global data
-    out = list(data)
-    return str(out)
+    return data
